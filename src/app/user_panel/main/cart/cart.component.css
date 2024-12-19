@@ -1,0 +1,73 @@
+.prod-price {
+  color: gray;
+}
+
+.prod-price span {
+  color: #04cf04;
+}
+
+.form-select {
+  color: gray;
+}
+
+.trashBtn {
+  color: var(--main-color);
+  font-size: 15px;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.trashBtn:hover {
+  color: red;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.form-c {
+  width: 100%;
+  border: 1px solid var(--sec-color);
+  outline: none;
+  height: 40px;
+  background-color: white;
+  padding: 5px;
+}
+
+.btn-secondary {
+  background-color: var(--main-color);
+  border: none;
+}
+
+.sub {
+  font-weight: 400;
+  color: gray;
+}
+
+.delivery-information {
+  color: gray;
+}
+
+.promo {
+  font-size: 15px;
+  color: gray;
+}
+
+.promo span {
+  color: #04cf04;
+
+}
+
+span.out {
+  color: red !important;
+
+}
+
+.myBtn2 {
+  transition: all 0.3s;
+}
+
+.myBtn2:hover {
+  color: black;
+}

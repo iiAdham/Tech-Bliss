@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="container">
+  <h3 class="prod-title">Products list</h3>
+
+  <div class="row">
+    <table class="table table-responsive table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product name</th>
+          <th>Product price ($)</th>
+          <th>Category</th>
+          <th>Image</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Products">
+          <td>{{ item.id }}</td>
+          <td>{{ item.product_name }}</td>
+          <td>{{ item.product_price | currency : "USD" }}</td>
+          <td>{{ item.category }}</td>
+          <td class="col-1">
+            <img src="{{ item.img_1 }}" class="img-fluid" />
+          </td>
+          <td class="text-end">
+            <button
+              routerLink="/admin/products/edit/{{ item.id }}"
+              class="btn btn-warning"
+            >
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </td>
+          <td class="text-start">
+            <button (click)="delete(item.id)" class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

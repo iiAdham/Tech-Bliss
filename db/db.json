@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "isAdmin": "true",
+      "gender": "Male",
+      "phone": "01096637388",
+      "address": "Fayoum-Baghous st",
+      "birthdate": "2004-05-15"
+    },
+    {
+      "id": 2,
+      "name": "Adham M. Farouk",
+      "email": "iiadham010@gmail.com",
+      "password": "123",
+      "birthdate": "05/15/2004",
+      "gender": "Male",
+      "address": "Baghous st",
+      "phone": "01096637388",
+      "isAdmin": false
+    },
+    {
+      "isAdmin": false,
+      "name": "1",
+      "email": "1",
+      "birthdate": "2004-01-01",
+      "gender": "Male",
+      "phone": "1",
+      "address": "1",
+      "password": "1",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "product_name": "iPhone 13 pro max",
+      "product_price": 399,
+      "color_1": "cyan",
+      "color_2": "black",
+      "color_3": "silver",
+      "description": "The iPhone 13 Pro Max is the most powerful iOS device yet with a larger screen and improved camera technology.",
+      "img_1": "assets/images/iphone-13-pro-max.png",
+      "img_2": "https://d3chjy2wsvtsxc.cloudfront.net/1.d/preview/f/0/f00a58b2_97a322b5_iPhone-13-Pro-Max-014.png",
+      "img_3": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone13-Pro-alpine-green-hero-2up-220308_big_carousel.jpg.slideshow-large_2x.jpg",
+      "isPopular": true,
+      "isAvailable": true,
+      "category": "phone"
+    },
+    {
+      "id": 2,
+      "product_name": "Airpods max",
+      "product_price": 800,
+      "color_1": "gray",
+      "color_2": "black",
+      "color_3": "pink",
+      "description": "The iPhone 12 Pro Max is the most powerful iOS device yet with a larger screen and improved camera technology.",
+      "img_1": "assets/images/airpods-max.webp",
+      "isPopular": true,
+      "isAvailable": true,
+      "category": "headphone"
+    },
+    {
+      "product_name": "Legion 5 pro",
+      "product_price": "1600",
+      "color_1": "red",
+      "img_1": "https://www.gigahertz.com.ph/cdn/shop/products/1_2a3b303a-3797-427f-a54f-c6d748c13748_1024x.webp?v=1710134590",
+      "category": "laptops",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam arcu et pellentesque pharetra. Ut id nunc leo. Nunc efficitur mi sed est laoreet, in fermentum arcu faucibus. Suspendisse fermentum fermentum luctus. Aliquam erat volutpat. Sed fermentum scelerisque porta. Aenean ultricies lectus eget justo sodales, ut fringilla ipsum convallis. Donec suscipit sem non ultrices ornare. Phasellus turpis turpis, facilisis ac justo vel, placerat malesuada odio. Nullam imperdiet scelerisque tristique. Aenean placerat tellus nibh, non accumsan turpis interdum at. Maecenas ligula elit, cursus et nisi varius, rhoncus venenatis ipsum. Mauris egestas, diam sit amet cursus semper, ligula tortor lobortis enim, ut consequat augue odio nec ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam viverra est ut est lobortis, eleifend fermentum magna mollis.",
+      "isPopular": true,
+      "isAvailable": true,
+      "id": 4
+    }
+  ],
+  "cart": [
+    {
+      "user_id": "1",
+      "product_id": 1,
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "user_id": null,
+      "product_id": 2,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "user_id": null,
+      "product_id": 2,
+      "quantity": 1,
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h3 class="prod-title">Mobile Phones</h3>
+  <div class="container">
+    <div class="row justify-content-evenly">
+      <ng-container *ngIf="!phones.length">
+        <div class="prod-card me-1 my-5 col-lg-3 text-center">
+          <div class="prod-card-img row justify-content-center align-items-end">
+            <div class="col-lg-12 col-md-6 col-9">
+              <img
+                src="assets/images/iphone-13-pro-max.png"
+                class="img-fluid"
+              />
+            </div>
+            <div class="prod-card-colors text-center">
+              <div
+                class="color-circle me-1"
+                style="background-color: var(--main-color)"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: var(--sec-color)"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: var(--third-color)"
+              ></div>
+            </div>
+          </div>
+          <div class="prod-card-details">
+            <h6>iPhone 13 pro max</h6>
+            <p>From $399</p>
+            <button routerLink="/details/ID" class="btn myBtn2">Buy</button>
+          </div>
+        </div>
+      </ng-container>
+      <div
+        *ngFor="let phone of phones"
+        class="prod-card me-1 my-5 col-lg-3 text-center"
+      >
+        <div class="prod-card-img row justify-content-center align-items-end">
+          <div class="col-lg-12 col-md-6 col-9">
+            <img src="{{ phone.img_1 }}" class="img-fluid" />
+          </div>
+          <div class="prod-card-colors text-center">
+            <div
+              class="color-circle me-1"
+              [style.background-color]="phone.color_1"
+            ></div>
+            <div
+              class="color-circle me-1"
+              [style.background-color]="phone.color_2"
+            ></div>
+            <div
+              class="color-circle me-1"
+              [style.background-color]="phone.color_3"
+            ></div>
+          </div>
+        </div>
+        <div class="prod-card-details">
+          <h6>{{ phone.product_name }}</h6>
+          <p>From {{ phone.product_price | currency : "USD" }}</p>
+          <button routerLink="/details/{{ phone.id }}" class="btn myBtn2">
+            Buy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

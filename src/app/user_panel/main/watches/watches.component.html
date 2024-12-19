@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h3 class="prod-title">Smartwatches</h3>
+  <div class="container">
+    <div class="row justify-content-evenly">
+      <ng-container *ngIf="!smartwatches.length">
+        <div class="prod-card me-1 my-5 col-lg-3 text-center">
+          <div class="prod-card-img row justify-content-center align-items-end">
+            <div class="col-lg-12 col-md-6 col-9">
+              <img
+                src="assets/images/apple-watch-ultra.png"
+                class="img-fluid"
+              />
+            </div>
+            <div class="prod-card-colors text-center">
+              <div
+                class="color-circle me-1"
+                style="background-color: blue"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: orange"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: green"
+              ></div>
+            </div>
+          </div>
+          <div class="prod-card-details">
+            <h6>Apple watch ultra</h6>
+            <p>From $799</p>
+            <button routerLink="/details/ID" class="btn myBtn2">Buy</button>
+          </div>
+        </div>
+        <div class="prod-card me-1 my-5 col-lg-3 text-center">
+          <div class="prod-card-img row justify-content-center align-items-end">
+            <div class="col-lg-12 col-md-6 col-9">
+              <img src="assets/images/series-9.webp" class="img-fluid" />
+            </div>
+            <div class="prod-card-colors text-center">
+              <div
+                class="color-circle me-1"
+                style="background-color: pink"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: black"
+              ></div>
+              <div
+                class="color-circle me-1"
+                style="background-color: rgb(37, 96, 183)"
+              ></div>
+            </div>
+          </div>
+          <div class="prod-card-details">
+            <h6>Apple watch series 9</h6>
+            <p>From $299</p>
+            <button routerLink="/details/ID" class="btn myBtn2">Buy</button>
+          </div>
+        </div>
+      </ng-container>
+      <div
+        *ngFor="let item of smartwatches"
+        class="prod-card me-1 my-5 col-lg-3 text-center"
+      >
+        <div class="prod-card-img row justify-content-center align-items-end">
+          <div class="col-lg-12 col-md-6 col-9">
+            <img src="{{ item.img_1 }}" class="img-fluid" />
+          </div>
+          <div class="prod-card-colors text-center">
+            <div
+              class="color-circle me-1"
+              [style.background-color]="item.color_1"
+              *ngIf="item.color_1"
+            ></div>
+            <div
+              class="color-circle me-1"
+              [style.background-color]="item.color_2"
+              *ngIf="item.color_2"
+            ></div>
+            <div
+              class="color-circle me-1"
+              [style.background-color]="item.color_3"
+              *ngIf="item.color_3"
+            ></div>
+          </div>
+        </div>
+        <div class="prod-card-details">
+          <h6>{{ item.product_name }}</h6>
+          <p>From {{ item.product_price }}</p>
+          <button routerLink="/details/{{ item.id }}" class="btn myBtn2">
+            Buy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

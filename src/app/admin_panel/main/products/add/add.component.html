@@ -1,0 +1,173 @@
+<app-header></app-header>
+
+<div class="container mb-5">
+  <h3 class="prod-title">Add new product</h3>
+  <div class="row">
+    <input
+      type="text"
+      class="form-c"
+      placeholder="Product name"
+      name="prodName"
+      #prodName="ngModel"
+      ngModel
+      [(ngModel)]="product.product_name"
+    />
+    <input
+      type="text"
+      class="form-c"
+      placeholder="Product price"
+      name="prodprice"
+      #prodprice="ngModel"
+      ngModel
+      [(ngModel)]="product.product_price"
+    />
+  </div>
+  <div class="row">
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Available color #1"
+        name="colorOne"
+        #colorOne="ngModel"
+        ngModel
+        [(ngModel)]="product.color_1"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Available color #2"
+        name="colorTwo"
+        #colorTwo="ngModel"
+        ngModel
+        [(ngModel)]="product.color_2"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Available color #3"
+        name="colorThree"
+        #colorThree="ngModel"
+        [(ngModel)]="product.color_3"
+        ngModel
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #1"
+        name="imgOne"
+        #imgOne="ngModel"
+        ngModel
+        [(ngModel)]="product.img_1"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #2"
+        name="imgTwo"
+        #imgTwo="ngModel"
+        ngModel
+        [(ngModel)]="product.img_2"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #3"
+        name="imgThree"
+        #imgThree="ngModel"
+        ngModel
+        [(ngModel)]="product.img_3"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #4"
+        name="imgFour"
+        #imgFour="ngModel"
+        ngModel
+        [(ngModel)]="product.img_4"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #5"
+        name="imgFive"
+        #imgFive="ngModel"
+        ngModel
+        [(ngModel)]="product.img_5"
+      />
+    </div>
+    <div class="col-md-4 p-0">
+      <input
+        type="text"
+        class="form-c w-100"
+        placeholder="Image #6"
+        name="imgSix"
+        #imgSix="ngModel"
+        ngModel
+        [(ngModel)]="product.img_6"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <select
+      type="text"
+      class="form-s"
+      name="category"
+      #category="ngModel"
+      ngModel
+      [(ngModel)]="product.category"
+    >
+      <option value="0" selected disabled>Select Category..</option>
+      <option value="phone">Phones</option>
+      <option value="headphone">Headphones</option>
+      <option value="smartwatches">Smartwatches</option>
+      <option value="laptops">Laptops</option>
+    </select>
+  </div>
+  <div class="row">
+    <textarea
+      name="prodDes"
+      #prodDes="ngModel"
+      ngModel
+      [(ngModel)]="product.description"
+      class="form-c textarea"
+      id="prodDes"
+      placeholder="Description"
+    ></textarea>
+  </div>
+
+  <input [(ngModel)]="product.isPopular" type="checkbox" name="popular" />
+  <label for="popular">&nbsp;Is popular?</label><br />
+  <input
+    [(ngModel)]="product.isAvailable"
+    type="checkbox"
+    name="available"
+    #available
+  />
+  <label for="available">&nbsp;Is available?</label>
+
+  <div class="text-center">
+    <button (click)="addProd(available)" class="btn btn-secondary">
+      Add product
+    </button>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div style="min-height: 80vh" class="row justify-content-between">
+    <!-- IMAGES -->
+    <ng-container *ngIf="!product.id">
+      <div class="col-lg-5">
+        <div class="row">
+          <div class="col-10">
+            <img #tempImg1 src="assets/images/airpods.png" class="img-fluid" />
+          </div>
+          <div class="col-2">
+            <div class="row">
+              <img
+                #tempImg2
+                (click)="imgClick(tempImg1, tempImg2)"
+                src="assets/images/airpods-max.webp"
+                class="img-fluid p-0"
+              />
+              <img
+                #tempImg3
+                (click)="imgClick(tempImg1, tempImg3)"
+                src="assets/images/apple-watch-ultra.png"
+                class="img-fluid p-0"
+              />
+              <img
+                #tempImg4
+                (click)="imgClick(tempImg1, tempImg4)"
+                src="assets/images/iphone-13-pro-max.png"
+                class="img-fluid p-0"
+              />
+              <img
+                #tempImg5
+                (click)="imgClick(tempImg1, tempImg5)"
+                src="assets/images/series-9.webp"
+                class="img-fluid p-0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="col-lg-5" *ngIf="product.id">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <img #img1 src="{{ product.img_1 }}" class="img-fluid" />
+        </div>
+        <div
+          class="col-2 p-0"
+          *ngIf="
+            product.img_2 ||
+            product.img_3 ||
+            product.img_4 ||
+            product.img_5 ||
+            product.img_6
+          "
+        >
+          <div class="row">
+            <img
+              #img2
+              (click)="imgClick(img1, img2)"
+              src="{{ product.img_2 }}"
+              class="img-fluid p-0"
+              style="cursor: pointer"
+              *ngIf="product.img_2"
+            />
+            <img
+              #img3
+              (click)="imgClick(img1, img3)"
+              src="{{ product.img_3 }}"
+              class="img-fluid p-0"
+              style="cursor: pointer"
+              *ngIf="product.img_3"
+            />
+            <img
+              #img4
+              (click)="imgClick(img1, img4)"
+              src="{{ product.img_4 }}"
+              class="img-fluid p-0"
+              style="cursor: pointer"
+              *ngIf="product.img_4"
+            />
+            <img
+              #img5
+              (click)="imgClick(img1, img5)"
+              src="{{ product.img_5 }}"
+              class="img-fluid p-0"
+              style="cursor: pointer"
+              *ngIf="product.img_5"
+            />
+            <img
+              #img6
+              (click)="imgClick(img1, img6)"
+              src="{{ product.img_6 }}"
+              class="img-fluid p-0"
+              style="cursor: pointer"
+              *ngIf="product.img_6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- DETAILS -->
+    <ng-container *ngIf="!product.id">
+      <div class="col-lg-6">
+        <h3 class="prod-name">Product Name</h3>
+        <p class="prod-price">$9999.00</p>
+
+        <div class="mb-4">
+          <p class="info">Select color:</p>
+          <button
+            class="btn myBtn me-1 py-3"
+            style="background-color: red"
+          ></button>
+          <button
+            class="btn myBtn me-1 py-3"
+            style="background-color: orange"
+          ></button>
+          <button
+            class="btn myBtn me-1 py-3"
+            style="background-color: black"
+          ></button>
+        </div>
+
+        <p class="info">Details:</p>
+        <p class="info-details">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam,
+          impedit aperiam corporis aspernatur neque, incidunt, beatae reiciendis
+          voluptate porro debitis id. Nobis, quod voluptas? Modi similique
+          libero eum voluptatem assumenda.
+        </p>
+        <button class="btn myBtn2 mb-2">Add to cart</button>
+      </div>
+    </ng-container>
+    <div class="col-lg-6" *ngIf="product.id">
+      <h3 class="prod-name">{{ product.product_name }}</h3>
+      <p class="prod-price">{{ product.product_price | currency : "USD" }}</p>
+
+      <div class="mb-4">
+        <p class="info">Select color:</p>
+        <button
+          *ngIf="product.color_1"
+          class="btn myBtn me-1 py-3"
+          [style.background-color]="product.color_1"
+        ></button>
+        <button
+          *ngIf="product.color_2"
+          class="btn myBtn me-1 py-3"
+          [style.background-color]="product.color_2"
+        ></button>
+        <button
+          *ngIf="product.color_3"
+          class="btn myBtn me-1 py-3"
+          [style.background-color]="product.color_3"
+        ></button>
+      </div>
+
+      <p class="info">Details:</p>
+      <p class="info-details">
+        {{ product.description }}
+      </p>
+      <button (click)="addToCart()" class="btn myBtn2 mb-2">Add to cart</button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,341 @@
+<header class="py-3 mb-5">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-md-5">
+      <a class="nav-item nav-item-brand pe-5" routerLink="/home">T-Bliss</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div
+        class="collapse navbar-collapse text-xl-start text-center"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" aria-current="page" routerLink="/mobiles"
+              >Phones</a
+            >
+          </li>
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" routerLink="/headphones">Headphones</a>
+          </li>
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" routerLink="/watches">Smartwatches</a>
+          </li>
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" routerLink="/laptops">Laptops</a>
+          </li>
+          <li class="nav-item pe-lg-4">
+            <a class="nav-link" routerLink="/products">All products</a>
+          </li>
+        </ul>
+        <div>
+          <a routerLink="/cart" class="pe-3 icons"
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+          <a
+            *ngIf="!loggedIn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            class="pe-3 icons"
+            style="cursor: pointer"
+            ><i class="fa-regular fa-user"></i
+          ></a>
+
+          <div class="dropdown d-inline-block" *ngIf="loggedIn">
+            <a
+              class="dropdown-toggle btn btn-secondary p-1 px-2"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-regular fa-user"></i
+            ></a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <p class="text-center">Welcome, {{ userToShow.name }}</p>
+              </li>
+              <li><p class="dropdown-divider"></p></li>
+              <li *ngIf="userToShow.isAdmin">
+                <a class="dropdown-item btn" routerLink="/admin">
+                  <i class="fa-solid fa-gauge"
+                    ><span style="font-size: 12px; padding-left: 10px"
+                      >Dashboard</span
+                    ></i
+                  >
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal2"
+                >
+                  <i class="fa-solid fa-user-pen"
+                    ><span style="font-size: 12px; padding-left: 6px"
+                      >Account settings</span
+                    ></i
+                  >
+                </a>
+              </li>
+              <li>
+                <a (click)="logOut()" class="dropdown-item btn text-danger">
+                  <i class="fa-solid fa-right-from-bracket"
+                    ><span style="font-size: 12px; padding-left: 10px"
+                      >Log out</span
+                    ></i
+                  >
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- SignIn/Up Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-center">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button
+              class="btn myBtn col-6"
+              [class]="signIn ? 'active' : ''"
+              (click)="signInBtn()"
+            >
+              Sign in
+            </button>
+            <button
+              class="btn myBtn col-6"
+              [class]="signUp ? 'active' : ''"
+              (click)="signUpBtn()"
+            >
+              Sign up
+            </button>
+          </div>
+        </div>
+
+        <!-- SIGN IN -->
+        <div *ngIf="signIn">
+          <div class="col-12">
+            <input
+              type="text"
+              placeholder="Email"
+              class="form-c mb-2"
+              #logEmail="ngModel"
+              ngModel
+              [(ngModel)]="loginUser.email"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              class="form-c mb-2"
+              #logPassword="ngModel"
+              ngModel
+              [(ngModel)]="loginUser.password"
+            />
+          </div>
+          <button type="button" class="btn myBtn2" (click)="signInFn()">
+            Sign in
+          </button>
+        </div>
+
+        <!-- SIGN UP -->
+        <div *ngIf="signUp">
+          <div class="col-12">
+            <input
+              type="text"
+              placeholder="Full name"
+              class="form-c mb-2"
+              #name="ngModel"
+              ngModel
+              [(ngModel)]="user.name"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="form-c mb-2"
+              #email="ngModel"
+              ngModel
+              [(ngModel)]="user.email"
+            />
+            <input
+              type="text"
+              placeholder="Birth date : MM/DD/YYYY"
+              onfocus="(this.type='date')"
+              class="form-c mb-2"
+              #birth="ngModel"
+              ngModel
+              [(ngModel)]="user.birthdate"
+            />
+            <select
+              name="gender"
+              id="gender"
+              class="form-c mb-2"
+              #gender="ngModel"
+              ngModel
+              [(ngModel)]="user.gender"
+            >
+              <option value="0" selected disabled>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <input
+              type="phone"
+              placeholder="Phone number"
+              class="form-c mb-2"
+              #phone="ngModel"
+              ngModel
+              [(ngModel)]="user.phone"
+            />
+            <input
+              type="text"
+              placeholder="Address"
+              class="form-c mb-2"
+              #address="ngModel"
+              ngModel
+              [(ngModel)]="user.address"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              class="form-c mb-2"
+              #password="ngModel"
+              ngModel
+              [(ngModel)]="user.password"
+            />
+          </div>
+          <button type="button" class="btn myBtn2" (click)="signUpFn()">
+            Sign up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModal2Label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-center">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- EDIT DATA -->
+        <div>
+          <div class="text-center"><h3>Edit Profile</h3></div>
+          <div class="col-12">
+            <input
+              type="text"
+              placeholder="Full name"
+              class="form-c mb-2"
+              #name="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.name"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="form-c mb-2"
+              #email="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.email"
+            />
+            <input
+              type="text"
+              placeholder="Birth date : MM/DD/YYYY"
+              onfocus="(this.type='date')"
+              class="form-c mb-2"
+              #birth="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.birthdate"
+            />
+            <select
+              name="gender"
+              id="gender"
+              class="form-c mb-2"
+              #gender="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.gender"
+            >
+              <option value="0" selected disabled>Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <input
+              type="phone"
+              placeholder="Phone number"
+              class="form-c mb-2"
+              #phone="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.phone"
+            />
+            <input
+              type="text"
+              placeholder="Address"
+              class="form-c mb-2"
+              #address="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.address"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              class="form-c mb-2"
+              #password="ngModel"
+              ngModel
+              [(ngModel)]="userToShow.password"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn myBtn2"
+            (click)="edit(userToShow.id)"
+          >
+            Update data
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

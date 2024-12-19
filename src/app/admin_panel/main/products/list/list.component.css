@@ -1,0 +1,34 @@
+.prod-title {
+  font-weight: 700;
+  font-size: 40px;
+  color: #3f3f3f;
+  position: relative;
+  padding: 20px 0;
+}
+
+.prod-title:after {
+  position: absolute;
+  content: "";
+  background-color: var(--main-color);
+  width: 10%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+}
+
+.prod-title:before {
+  position: absolute;
+  content: "";
+  background-color: var(--main-color);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  left: 9.9%;
+  bottom: -4%;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}

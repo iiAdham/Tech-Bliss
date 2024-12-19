@@ -1,0 +1,56 @@
+.prod-title {
+  font-weight: 700;
+  font-size: 40px;
+  color: #3f3f3f;
+  position: relative;
+  padding: 20px 0;
+}
+
+.prod-title:after {
+  position: absolute;
+  content: "";
+  background-color: var(--main-color);
+  width: 10%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+}
+
+.prod-title:before {
+  position: absolute;
+  content: "";
+  background-color: var(--main-color);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  left: 9.9%;
+  bottom: -4%;
+}
+
+
+.prod-card-img {
+  background-color: var(--card-color);
+  padding: 20px;
+  padding-bottom: 40px;
+  border-radius: 30% 51% 17% 43% / 24% 17% 50% 25%;
+  height: 75%;
+}
+
+.color-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.6s;
+}
+
+.color-circle:hover {
+  transform: scale(1.2);
+}
+
+
+@media (max-width:347px) {
+  .prod-title {
+    font-size: 30px;
+  }
+}

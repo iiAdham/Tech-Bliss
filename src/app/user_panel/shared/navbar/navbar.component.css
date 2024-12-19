@@ -1,0 +1,90 @@
+.search {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  padding: 8px;
+}
+
+.search-form {
+  position: relative;
+}
+
+.searchBtn {
+  position: absolute;
+  right: 0;
+}
+
+.nav-item a {
+  color: gray;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.nav-item-brand {
+  color: var(--sec-color);
+  font-family: main-font;
+  font-size: 25px;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.nav-item-brand:hover {
+  color: var(--main-color);
+}
+
+.searchBtn i {
+  color: gray;
+}
+
+.nav-item a:hover {
+  color: var(--main-color)
+}
+
+.icons i {
+  color: gray;
+  transition: all 0.3s;
+}
+
+.icons i:hover {
+  color: darkgray;
+}
+
+.navbar-toggler,
+.navbar-toggler.collapsed {
+  outline: none;
+  border: none;
+  color: gray;
+}
+
+.modal-content {
+  background-color: #FEFAF6 !important;
+
+}
+
+.myBtn {
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+.myBtn:hover {
+  background-color: var(--sec-color);
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+.active {
+  background-color: var(--main-color);
+}
+
+.form-c {
+  width: 100%;
+  border: 1px solid var(--sec-color);
+  outline: none;
+  height: 40px;
+  background-color: #eeeeee;
+  padding: 5px;
+}

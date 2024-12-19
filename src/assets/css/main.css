@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
+:root {
+  --main-color: #ED9455;
+  --sec-color: #FFBB70;
+  --third-color: #FFEC9E;
+  --fourth-color: #FFFBDA;
+  --card-color: #f2f0ecda;
+}
+
+@font-face {
+  font-family: main-font;
+  src: url(../../assets/fonts/Nicolast.ttf);
+}
+
+.myBtn {
+  background-color: var(--fourth-color);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 2px solid var(--fourth-color);
+  color: gray;
+}
+
+.myBtn:hover {
+  background-color: white;
+  border: 2px solid var(--third-color);
+}
+
+.myBtn2 {
+  background-color: var(--main-color);
+  padding: 10px 25px;
+  border-radius: 60px;
+  font-weight: 600;
+  border: 2px solid var(--main-color);
+  color: white;
+}
+
+.myBtn2:hover {
+  background-color: white;
+  border: 2px solid var(--third-color);
+}
